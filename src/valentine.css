@@ -1,13 +1,78 @@
+.valentine-container {
+  position: relative;
+  background: url('./images/pexels-karolina-grabowska-5713581.jpg') center center/cover fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* Ensure particles are behind other elements */
+}
+
+.pulse-button {
+  animation: pulse 1.5s infinite;
+  background-color: red;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  z-index: 1; /* Ensure button appears above particles */
+}
+
+.confirm-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  z-index: 2; /* Ensure confirm box appears above particles and button */
+}
+
 .message-animation {
-    animation: light-up 0.5s ease-in-out infinite alternate;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: red; */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  white-space: pre-line;
+  z-index: 2; /* Ensure message appears above particles and button */
+}
+
+.countdown-timer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1; /* Ensure countdown appears above particles */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  
-  @keyframes light-up {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  50% {
+    transform: scale(1.05);
   }
-  
+  100% {
+    transform: scale(1);
+  }
+}
